@@ -1,0 +1,5 @@
+[(0, '0.021*"events" + 0.015*"event" + 0.013*"embed" + 0.009*"production" + 0.007*"said" + 0.006*"san" + 0.006*"francisco" + 0.005*"th" + 0.005*"new" + 0.004*"art"'), 
+(1, '0.012*"s" + 0.008*"city" +0.007*"san" + 0.007*"production" + 0.006*"francisco" + 0.005*"twitter" + 0.005*"org" + 0.005*"street" + 0.004*"new" + 0.004*"community"'), 
+(2, '0.014*"new" + 0.008*"yelp" + 0.007*"production" + 0.007*"pm" + 0.006*"like" + 0.006*"spot" + 0.006*"open" + 0.006*"menu" + 0.006*"restaurant" + 0.006*"st"'), 
+(3, '0.033*"f" + 0.022*"feed" + 0.022*"ripple" + 0.018*"biz" + 0.015*"source" + 0.014*"campaign" +0.014*"ysp" + 0.014*"san" + 0.012*"creative" + 0.011*"adjust"'), 
+(4, '0.012*"man" + 0.011*"suspect" + 0.011*"year" + 0.011*"old" + 0.010*"victim" + 0.009*"th" + 0.009*"police" + 0.008*"text" + 0.008*"sfpd" + 0.008*"pm"')]
