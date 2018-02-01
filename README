@@ -1,0 +1,32 @@
+******      Code Part       ******
+
+--- in python2 environment
+0.  clean_text.py: 
+        remove stop words, and form corpus for training
+
+--- in python3 environment
+1.  hc_tfidf.py:
+        vectorize the documents, apply k-means clustering
+2.  plot.py:
+        plot each article with category label on the map
+3.  find_topics.py:
+        use LDA model to find: 
+        i.  latent topics
+        ii. words contributing to each topic
+
+--- steps
+    python clean_text.py
+    python3 hc_tfidf.py
+    python3 plot.py
+    python3 find_topics.py
+
++--------------------------------------------------------------+
+
+******      File Part       ******
+
+hoodline_challenge.csv: orignal dataset
+0_contents.txt: clean corpus produced by clean_text.py
+0_data.csv: results produced by hc_tfidf.py, 
+            each article has one more 'category' attribute
+topics.txt: the result I got by running 'python3 find_topics.py'
+*.png: plots I got by running 'python3 plot.py'
