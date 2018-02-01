@@ -20,18 +20,16 @@ def plot_map(category, lat, lon):
     m.drawmapboundary(fill_color='white')
     plt.title("News in different categories")
     # Define a colormap
-    jet = plt.cm.get_cmap('jet')
+    cm = plt.cm.get_cmap('RdYlBu')
     # Transform points into Map's projection
     x,y = m(lon, lat)
-    # Color the transformed points!
-    sc = plt.scatter(x,y, c=category, vmin=0, vmax =7, cmap=jet, s=20, edgecolors='none')
-    # And let's include that colorbar
-    # cbar = plt.colorbar(sc, shrink = .5)
-    # cbar.set_label(temp)
+    # Color the transformed points
+    sc = plt.scatter(x,y, c=category, vmin=0, vmax =4, cmap=cm, s=20, edgecolors='none')
+
     plt.show()
 
 def main():
-    file_name = "new_data.csv"
+    file_name = "0_data.csv"
     input_csv = open(file_name, 'r')
     category = []
     lat = []
@@ -43,7 +41,6 @@ def main():
         t_o = row['longitude']
         if t_a and t_o:
             category.append(int(row['category']))
-            print(t_a)
             lat.append(float(t_a))
             lon.append(float(t_o))
 
