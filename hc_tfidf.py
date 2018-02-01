@@ -12,8 +12,8 @@ import pandas as pd
 # from tensorflow.contrib.factorization.python.ops import clustering_ops
 # from mpl_toolkits.mplot3d import Axes3D
 
-max_features = 1000
-num_clusters = 8
+max_features = 1500
+num_clusters = 5
 
 # Define tokenizer
 def tokenizer(text):
@@ -23,9 +23,7 @@ def tokenizer(text):
 def create_tfidf(texts):
     # Create TF-IDF of texts
     tfidf = TfidfVectorizer(tokenizer=tokenizer, max_features=max_features)
-    sparse_tfidf_texts = tfidf.fit_transform(texts) # len: 3954, 3954x1000
-    # print(sparse_tfidf_texts.shape[1]) 
-    # print(sparse_tfidf_texts.shape[0]) --> 3954
+    sparse_tfidf_texts = tfidf.fit_transform(texts) # len: 3954, 3954x1500
 
     # get similarity matrix
     similarity_matrix = cosine_similarity(sparse_tfidf_texts) # (3954, 3954)
@@ -33,15 +31,20 @@ def create_tfidf(texts):
 
 
 def main():
-    file_name = "2_contents.txt"
+    file_name = "0_contents.txt"
     corpus = open(file_name, 'r').read().split(',')
+    #   vectorize the corpus
     tfidf_matrix, similarity_matrix = create_tfidf(corpus)
+    #   apply k-means clustering method
     km = KMeans(n_clusters = num_clusters)
     km.fit(tfidf_matrix)
     cluster_list = km.labels_.tolist()
+    #   save the assigned cluster
     csv_input = pd.read_csv('data.csv')
     csv_input['category'] = cluster_list
-    csv_input.to_csv('new_data.csv', index=False)
+    csv_input.to_csv('0_data.csv', index=False)
+    #   save the cosine similarity matrix for later use
+    np.save('simlarity', np.array(similarity_matrix))
 
 if __name__ == "__main__":
     # tf.app.run()
